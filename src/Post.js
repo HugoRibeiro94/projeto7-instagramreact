@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Post(){
     const array = [
         {imagem:"assets/img/meowed.svg",titulo:"meowed",imagemPost:"assets/img/gato-telefone.svg"},
@@ -5,6 +7,16 @@ export default function Post(){
         {imagem:"assets/img/9gag.svg",titulo:"9gag",imagemPost:"assets/img/gato-telefone.svg"}
     ];
 
+    let [cor, setCor] = useState("");
+
+    function trocarCor(){
+        if ( cor === ""){
+            
+            setCor("vermelho");
+        }else{
+            setCor("");
+        }
+    }
     return(
         <div class="posts">
             {array.map((item) =>
@@ -20,13 +32,13 @@ export default function Post(){
                     </div>
 
                     <div class="conteudo">
-                        <img src={item.imagemPost} alt="gato-telefone" data-test="post-image"/>
+                        <img src={item.imagemPost} alt="gato-telefone" data-test="post-image" onClick={trocarCor}/>
                     </div>
 
                     <div class="fundo">
                         <div class="acoes">
                             <div>
-                                <ion-icon name="heart-outline" data-test="like-post"></ion-icon>
+                                <ion-icon name="heart-outline" data-test="like-post" class={cor} onClick={trocarCor} ></ion-icon>
                                 <ion-icon name="chatbubble-outline"></ion-icon>
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>

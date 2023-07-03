@@ -18,7 +18,7 @@ export default function User(){
 
     return (
         <div class="usuario">
-            <img data-test="profile-image" onClick={trocarImagem} src={imagem}/>
+            <img data-test="profile-image" onClick={trocarImagem} src={(!imagem) ? "assets/img/catanacomics.svg" : `${imagem}`} />
             <div class="texto">
                 <span>
                 <strong data-test="name" >{(!nomeUsuario) ? "catanacomics" : `${nomeUsuario}`}</strong>
