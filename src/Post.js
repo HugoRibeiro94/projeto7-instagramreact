@@ -3,11 +3,11 @@ import { useState } from "react";
 export default function Post(props){
     let [corVermelho, setCorVermelho] = useState("");
 
-    let [curtidas, setCurtidas] = useState("101.523");
+    let [curtidas, setCurtidas] = useState(props.qtd);
 
     function curtirImagem(){
         if ( corVermelho === ""){
-            setCurtidas("101.524");            
+            setCurtidas(curtidas + 1);            
             setCorVermelho("vermelho");
         }
     }
@@ -15,10 +15,10 @@ export default function Post(props){
     function trocarCorCurtida(){
         
         if ( corVermelho === ""){
-            setCurtidas("101.524");            
+            setCurtidas(curtidas + 1);            
             setCorVermelho("vermelho");
         }else{
-            setCurtidas("101.523");
+            setCurtidas(curtidas - 1);
             setCorVermelho("");
         }
     }
