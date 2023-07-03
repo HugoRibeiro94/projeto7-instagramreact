@@ -2,11 +2,11 @@ import {useState} from "react";
 
 export default function User(){
 
-    let [novaImagem, setImagem] = useState("");
+    let [imagem, setImagem] = useState("assets/img/catanacomics.svg");
 
     function trocarImagem(){
-        const imagem = prompt("Digite a nova imagem");
-        setImagem(imagem);
+        const novaImagem = prompt("Digite a nova imagem");
+        setImagem(novaImagem);
     }
 
     let [nomeUsuario, setNomeUsuario] = useState("");
@@ -18,7 +18,7 @@ export default function User(){
 
     return (
         <div class="usuario">
-            <img data-test="profile-image" onClick={trocarImagem} src={(!novaImagem) ? "assets/img/catanacomics.svg" : {novaImagem}} alt="imagem de perfil"/>
+            <img data-test="profile-image" onClick={trocarImagem} src={imagem}/>
             <div class="texto">
                 <span>
                 <strong data-test="name" >{(!nomeUsuario) ? "catanacomics" : `${nomeUsuario}`}</strong>
