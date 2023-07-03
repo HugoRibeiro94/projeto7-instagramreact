@@ -11,6 +11,13 @@ export default function Post(){
 
     let [curtidas, setCurtidas] = useState("101.523");
 
+    function curtirImagem(){
+        if ( corVermelho === ""){
+            setCurtidas("101.524");            
+            setCorVermelho("vermelho");
+        }
+    }
+
     function trocarCorCurtida(){
         
         if ( corVermelho === ""){
@@ -47,7 +54,7 @@ export default function Post(){
                     </div>
 
                     <div class="conteudo">
-                        <img src={item.imagemPost} alt="gato-telefone" data-test="post-image" onClick={trocarCorCurtida}/>
+                        <img src={item.imagemPost} alt="gato-telefone" data-test="post-image" onClick={curtirImagem}/>
                     </div>
 
                     <div class="fundo">
