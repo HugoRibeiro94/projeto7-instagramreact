@@ -1,12 +1,6 @@
 import { useState } from "react";
 
-export default function Post(){
-    const array = [
-        {imagem:"assets/img/meowed.svg",titulo:"meowed",imagemPost:"assets/img/gato-telefone.svg"},
-        {imagem:"assets/img/barked.svg",titulo:"barked",imagemPost:"assets/img/dog.svg"},
-        {imagem:"assets/img/9gag.svg",titulo:"9gag",imagemPost:"assets/img/gato-telefone.svg"}
-    ];
-
+export default function Post(props){
     let [corVermelho, setCorVermelho] = useState("");
 
     let [curtidas, setCurtidas] = useState("101.523");
@@ -29,24 +23,23 @@ export default function Post(){
         }
     }
 
-    let [corAzul, setCorAzul] = useState("");
+    let [corPreto, setCorPreto] = useState("");
 
     function trocarCorSalvar(){
         
-        if ( corAzul === ""){            
-            setCorAzul("azul");
+        if ( corPreto === ""){            
+            setCorPreto("preto");
         }else{
-            setCorAzul("");
+            setCorPreto("");
         }
     }
     return(
         <div class="posts">
-            {array.map((item) =>
                 <div class="post" data-test="post">
                     <div class="topo">
                         <div class="usuario">
-                            <img src={item.imagem} alt={item.titulo}/>
-                            {item.titulo}
+                            <img src={props.imagem} alt={props.titulo}/>
+                            {props.titulo}
                         </div>
                         <div class="acoes">
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -54,7 +47,7 @@ export default function Post(){
                     </div>
 
                     <div class="conteudo">
-                        <img src={item.imagemPost} alt="gato-telefone" data-test="post-image" onClick={curtirImagem}/>
+                        <img src={props.imagemPost} alt="gato-telefone" data-test="post-image" onClick={curtirImagem}/>
                     </div>
 
                     <div class="fundo">
@@ -65,7 +58,7 @@ export default function Post(){
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
                             <div>
-                                <ion-icon name="bookmark-outline" data-test="save-post" class={corAzul} onClick={trocarCorSalvar}></ion-icon>
+                                <ion-icon name="bookmark-outline" data-test="save-post" class={corPreto} onClick={trocarCorSalvar}></ion-icon>
                             </div>
                         </div>
 
@@ -76,7 +69,7 @@ export default function Post(){
                             </div>
                         </div>
                     </div>
-                </div>)}
+                </div>
         </div>
     );
 }
